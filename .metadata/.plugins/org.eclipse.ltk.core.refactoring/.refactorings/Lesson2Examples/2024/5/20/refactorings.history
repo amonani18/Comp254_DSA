@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;linkedlists.SinglyLinkedList.tail&apos; in &apos;linkedlists.SinglyLinkedList&apos;&#x0D;&#x0A;- Original project: &apos;Lesson2Examples&apos;&#x0D;&#x0A;- Original element: &apos;linkedlists.SinglyLinkedList.tail&apos;&#x0D;&#x0A;- Getter method name: &apos;getTail&apos;&#x0D;&#x0A;- Setter method name: &apos;setTail&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;tail&apos;" flags="589830" getter="getTail" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;linkedlists{SinglyLinkedList.java[SinglyLinkedList^tail" insertion="12" setter="setTail" stamp="1715795889719" version="1.0" visibility="1"/>
+</session>
