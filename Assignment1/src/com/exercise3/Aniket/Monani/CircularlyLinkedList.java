@@ -73,6 +73,44 @@ public class CircularlyLinkedList<E> {
 
     /** Constructs an initially empty list. */
     public CircularlyLinkedList() { }             // constructs an initially empty list
+    public CircularlyLinkedList[] split() {
+        CircularlyLinkedList[] halves = new CircularlyLinkedList[2];
+        halves[0] = new CircularlyLinkedList();
+        halves[1] = new CircularlyLinkedList();
+
+        if (size <= 1) {
+            halves[0] = this;
+            return halves;
+        }
+
+        Node slow = tail.next;
+        Node fast = tail.next;
+
+        // Use two-pointer technique to find the midpoint
+        while (fast.next != tail.next && fast.next.next != tail.next) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // First half starts from tail.next and ends at slow
+        Node firstHalfStart = tail.next;
+        Node firstHalfEnd = slow;
+        halves[0].tail = slow;
+        halves[0].size = (size + 1) / 2;
+        halves[0].tail.next = firstHalfStart;
+
+        // Second half starts from slow.next and ends at tail
+        Node secondHalfStart = slow.next;
+        Node secondHalfEnd = tail;
+        halves[1].tail = tail;
+        halves[1].size = size / 2;
+        halves[1].tail.next = secondHalfStart;
+
+        // Break the link for the first half
+        firstHalfEnd.next = firstHalfStart;
+
+        return halves;
+    }
 
     // access methods
     /**
@@ -194,6 +232,23 @@ public class CircularlyLinkedList<E> {
 //      * @ 301422485
     public static void main(String[] args)
     {
+        CircularlyLinkedList list = new CircularlyLinkedList();
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(3);
+        list.addFirst(4);
+        list.addFirst(5);
+
+        System.out.println("Original list:");
+        list.finalize();
+
+        CircularlyLinkedList[] halves = list.split();
+
+        System.out.println("First half:");
+        halves[0].finalize();
+
+        System.out.println("Second half:");
+        halves[1].finalize();
         //(LAX, MSP, ATL, BOS)
         CircularlyLinkedList<String> circularList = new CircularlyLinkedList<String>();
         circularList.addFirst("LAX");
